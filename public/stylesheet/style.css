@@ -1,0 +1,49 @@
+
+.jumbotron {
+  margin:15px auto;
+  margin-bottom:20px;
+  background-image: url('https://images.unsplash.com/27/peaks.jpg?auto=format&fit=crop&w=1435&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.pull-right{
+  display: inline-block;
+  float: right;
+}
+
+.text-right{
+  text-align: right;
+}
+
+.card{
+  margin-bottom: 20px;
+}
+
+#home{
+  background-image: url(https://images.unsplash.com/photo-1440557653082-e8e186733eeb?auto=format&fit=crop&w=750&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D);
+  height:100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-top: 250px;
+  color: #333;
+}
+
+#intro{
+  background-color:rgba(255,255,255,0.5);
+  display: inline-block;
+  padding: 40px;
+  border-radius: 6px;
+}
+
+#intro h1{
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1000px) {
+  .navbar-right{
+      display: none;
+  }
+}
