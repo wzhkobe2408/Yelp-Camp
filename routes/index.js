@@ -18,7 +18,8 @@ router.get('/register',function(req,res){
 router.post('/login',passport.authenticate('local',
   {
     successRedirect:'/campgrounds',
-    failureRedirect:'/login'
+    failureRedirect:'/login',
+    failureFlash: 'Invalid username or password.'
   }),function(req,res){
 })
 
@@ -26,26 +27,20 @@ router.post('/register',function(req,res){
     var newUser = new user({username:req.body.username});
     user.register(newUser,req.body.password,function(err, user){
       if(err){
-        console.log(err);
-        return res.render('account/register')
+        req.flash('error',err.message);
+        return res.redirect('/register')
       }
       passport.authenticate('local')(req,res,function() {
+        req.flash('success','Welcome to YelpCamp' + user.username);
         res.redirect('/campgrounds')
       })
     })
   })
 
 router.get('/logout',function(req, res){
+  req.flash('success','Logged you out!')
   req.logout();
   res.redirect('/campgrounds');
 })
-
-//middleware
-function isLoggedIn(req,res,next){
-  if(req.isAuthenticated()){
-    return next();
-  }
-  res.redirect('/login');
-}
 
 module.exports = router
